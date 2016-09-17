@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title> GET Request test </title>
+    <link rel="stylesheet" type="text/css" href="test.css"/>
+</head>
+
+<body>
+
+    <div id = "form">
+        <form method='postCode'>
+
+            <p>
+                <label for='name'>Subscriber Type:</label><br>
+                <select name = "subscriberType" id = "subscriberType">
+                    <option selected="selected">Select One</option>
+                    <option>EMAIL_ADDRESS<option>PHONE_NUMBER
+                </select>
+            </p>
+
+            <p>
+                <label for='name'>Subscriber ID:</label><br>
+                <input type='text' name='subscriberID' id='name'>
+            </p>
+
+            <p>
+                <label for='name'>Account Number:</label><br>
+                <input type='text' minlength="9" maxlength="20" name='accountNumber' id='accountNumber'>
+            </p>
+
+            <p>
+                <label for='name'>Expiry Date:</label><br>
+                <input type='date' name='expiryDate' id='expiryDate'>
+            </p>
+
+            <p>
+                <label for='name'>First Name:</label><br>
+                <input type='text' name='firstName' id='firstName'>
+            </p>
+
+            <p>
+                <label for='name'>M.I:</label><br>
+                <input type='text' name='middleName' id='middleName'>
+            </p>
+
+            <p>
+                <label for='name'>Last Name:</label><br>
+                <input type='text' name='lastName' id='lastName'>
+            </p>
+
+
+            <!-- <label for='email'>Email:</label><br>
+            <input type='text' name='email' id='email'>
+            <br><br>
+            <div id='summary'>
+                <label>Why you're interested in Audrey Choi</label><br>
+                <textarea id='responseBox' rows = "7" cols = "60"></textarea>
+                <br><br>
+                <input type='button' value='Submit your application' id='submitButton'>
+            </div> -->
+
+            <div id='results'></div>
+
+        </form>
+    <CreateMappingRequest>
+    <SubscriberId>13147449999</SubscriberId>
+    <SubscriberType>PHONE_NUMBER</SubscriberType>
+    <AccountUsage>RECEIVING</AccountUsage>
+    <DefaultIndicator>T</DefaultIndicator>
+    <Alias>My Debit Card</Alias>
+    <ICA>009674</ICA>
+    <AccountNumber>5184680430000006</AccountNumber>
+        <ExpiryDate>201401</ExpiryDate>
+    <CardholderFullName>
+        <CardholderFirstName>John</CardholderFirstName>
+        <CardholderMiddleName>Q</CardholderMiddleName>
+        <CardholderLastName>Public</CardholderLastName>
+        </CardholderFullName>
+    <Address>
+            <Line1>123 Main Street</Line1>
+            <Line2>#5A</Line2>
+            <City>Somewhere</City>
+            <CountrySubdivision>MO</CountrySubdivision>
+            <PostalCode>69999</PostalCode>
+            <Country>USA</Country>
+    </Address>
+    <DateOfBirth>19460102</DateOfBirth>
+    </CreateMappingRequest>
+</body>
+</html>
+Contact GitHub API Training Shop Blog About
+© 2016 GitHub, Inc. Terms Privacy Security Status Help
