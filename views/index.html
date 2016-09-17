@@ -11,59 +11,53 @@
     <div id = "form">
         <form method='postCode'>
 
-            <p>
+          <!--   <p>
                 <label for='name'>Subscriber Type:</label><br>
                 <select name = "subscriberType" id = "subscriberType">
                     <option selected="selected">Select One</option>
                     <option>EMAIL_ADDRESS<option>PHONE_NUMBER
                 </select>
+            </p> -->
+
+            <p>
+                <label for='origin'>Origin:</label><br>
+                <input type='text' name='origin' id='origin'>
             </p>
 
             <p>
-                <label for='name'>Subscriber ID:</label><br>
-                <input type='text' name='subscriberID' id='name'>
+                <label for='departure'>Departure Date</label><br>
+                <input type='text' name='departure' id='departure'>
             </p>
 
             <p>
-                <label for='name'>Account Number:</label><br>
-                <input type='text' minlength="9" maxlength="20" name='accountNumber' id='accountNumber'>
+                <label for='duration'>Duration:</label><br>
+                <input type='text' name='duration' id='duration'>
             </p>
 
             <p>
-                <label for='name'>Expiry Date:</label><br>
-                <input type='date' name='expiryDate' id='expiryDate'>
+                <label for='direct'>Direct:</label><br>
+                <input type='text' name='direct' id='direct'>
             </p>
 
             <p>
-                <label for='name'>First Name:</label><br>
-                <input type='text' name='firstName' id='firstName'>
+                <label for='maxPrice'>Budget:</label><br>
+                <input type='text' name='maxPrice' id='maxPrice'>
             </p>
 
             <p>
-                <label for='name'>M.I:</label><br>
-                <input type='text' name='middleName' id='middleName'>
-            </p>
-
-            <p>
-                <label for='name'>Last Name:</label><br>
-                <input type='text' name='lastName' id='lastName'>
+                <label for='mode'>Aggregation Mode:</label><br>
+                <input type='text' name='mode' id='mode'>
             </p>
 
 
-            <!-- <label for='email'>Email:</label><br>
-            <input type='text' name='email' id='email'>
-            <br><br>
-            <div id='summary'>
-                <label>Why you're interested in Audrey Choi</label><br>
-                <textarea id='responseBox' rows = "7" cols = "60"></textarea>
-                <br><br>
-                <input type='button' value='Submit your application' id='submitButton'>
-            </div> -->
+    
+            <input type='button' value='Get the results' id='submitButton' onClick = "getData">
+            </div>
 
             <div id='results'></div>
 
         </form>
-    <CreateMappingRequest>
+<!--     <CreateMappingRequest>
     <SubscriberId>13147449999</SubscriberId>
     <SubscriberType>PHONE_NUMBER</SubscriberType>
     <AccountUsage>RECEIVING</AccountUsage>
@@ -86,7 +80,7 @@
             <Country>USA</Country>
     </Address>
     <DateOfBirth>19460102</DateOfBirth>
-    </CreateMappingRequest>
+    </CreateMappingRequest> -->
 </body>
 </html>
 Contact GitHub API Training Shop Blog About
