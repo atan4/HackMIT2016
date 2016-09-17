@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Data Layer: Polygon</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+
+      // This example uses the Google Maps JavaScript API's Data layer
+      // to create a rectangular polygon with 2 holes in it.
+
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 3,
+          center: {lat: 43, lng: -20},
+        });
+
+        // Define the LatLng coordinates for the outer path.
+        var outerCoords = [
+          {lat: -32.364, lng: 153.207}, // north west
+          {lat: -35.364, lng: 153.207}, // south west
+          {lat: -35.364, lng: 158.207}, // south east
+          {lat: -32.364, lng: 158.207}  // north east
+        ];
+
+        // Define the LatLng coordinates for an inner path.
+        var innerCoords1 = [
+          {lat: -33.364, lng: 154.207},
+          {lat: -34.364, lng: 154.207},
+          {lat: -34.364, lng: 155.207},
+          {lat: -33.364, lng: 155.207}
+        ];
+
+        // Define the LatLng coordinates for another inner path.
+        var innerCoords2 = [
+          {lat: -33.364, lng: 156.207},
+          {lat: -34.364, lng: 156.207},
+          {lat: -34.364, lng: 157.207},
+          {lat: -33.364, lng: 157.207}
+        ];
+
+        var layer = new google.maps.FusionTablesLayer({
+          query: {
+            select: 'geometry',
+            from: '1N2LBk4JHwWpOY4d9fobIn27lfnZ5MDy-NoqqRpk',
+            where: "ISO_2DIGIT IN ('US', 'GB', 'DE', 'AF')"
+          }
+        //   styles: [{
+        //     polygonOptions: {
+        //       fillColor: '#00FF00',
+        //       fillOpacity: 0.3
+        //     }
+        //   }, {
+        //     where: 'birds > 300',
+        //     polygonOptions: {
+        //       fillColor: '#0000FF'
+        //     }
+        //   }, {
+        //     where: 'population > 5',
+        //     polygonOptions: {
+        //       fillOpacity: 1.0
+        //     }
+        //   }]
+        });
+        
+        layer.setMap(map);
+
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArihPJ3CIYo60NzAuQz7BsplnlTtjQxUo&callback=initMap">
+    </script>
+  </body>
+</html>
