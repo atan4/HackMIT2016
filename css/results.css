@@ -4,6 +4,14 @@ html{
     padding:0px;
 }
 
+h3{
+    font-size: 2vh;
+}
+
+h2{
+    font-size: 5vh;
+}
+
 body{
     font-family: 'Montserrat', sans-serif;
 /*    background-color: white;*/
@@ -89,3 +97,22 @@ input[type=text] ::placeholder{
 #map{
     height: 80%;
 }
+
+#middle{
+    text-align: center;
+    padding-top: 8%;
+    width: 100%;
+    text-transform: uppercase;
+}
+
+#left{
+    width: 50%;
+    display: inline-block;
+    float: left;
+}
+
+#right{
+    width: 50%;
+    float: left;
+}
+
