@@ -34,6 +34,7 @@
 
     <script type="text/javascript">
       var colors = ['#FF0000', '#00FF00', '#0000FF', '#FFFF00'];
+      var highlighted_countries = [];
       var map;
 
       function initialize() {
@@ -70,9 +71,11 @@
             if (geometries) {
               for (var j in geometries) {
                 newCoordinates.push(constructNewCoordinates(geometries[j]));
+                country_name = rows[i][0];
               }
             } else {
               newCoordinates = constructNewCoordinates(rows[i][1]['geometry']);
+              country_name = rows[i][0];
             }
             var randomnumber = Math.floor(Math.random() * 4);
             var country = new google.maps.Polygon({
@@ -81,11 +84,22 @@
               strokeOpacity: 0,
               strokeWeight: 1,
               fillColor: colors[0],
-              fillOpacity: 0
+              fillOpacity: 0,
+              cname: country_name
             });
 
             google.maps.event.addListener(country, 'click', function() {
-              this.setOptions({fillOpacity: .5});
+              if (this.fillOpacity == 0) {
+                this.setOptions({fillOpacity: .5});
+                highlighted_countries.push(this.cname);
+              } else {
+                this.setOptions({fillOpacity: 0});
+                var ind = highlighted_countries.indexOf(this.cname);
+                if (ind > -1) {
+                  highlighted_countries.splice(ind, 1);
+                }
+              }
+              //console.log(highlighted_countries);
             });
 
             country.setMap(map);
