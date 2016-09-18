@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title> GET Request test </title>
+    <link rel="stylesheet" type="text/css" href="test.css"/>
+</head>
+
+<body>
+
+    <div id = "form">
+        <form method='postCode'>
+
+          <!--   <p>
+                <label for='name'>Subscriber Type:</label><br>
+                <select name = "subscriberType" id = "subscriberType">
+                    <option selected="selected">Select One</option>
+                    <option>EMAIL_ADDRESS<option>PHONE_NUMBER
+                </select>
+            </p> -->
+
+            <p>
+                <label for='origin'>Origin:</label><br>
+                <input type='text' name='origin' id='origin'>
+            </p>
+
+            <p>
+                <label for='departure'>Departure Date</label><br>
+                <input type='text' name='departure' id='departure'>
+            </p>
+
+            <p>
+                <label for='duration'>Duration:</label><br>
+                <input type='text' name='duration' id='duration'>
+            </p>
+
+            <p>
+                <label for='direct'>Direct:</label><br>
+                <input type='text' name='direct' id='direct'>
+            </p>
+
+            <p>
+                <label for='maxPrice'>Budget:</label><br>
+                <input type='text' name='maxPrice' id='maxPrice'>
+            </p>
+
+            <p>
+                <label for='mode'>Aggregation Mode:</label><br>
+                <input type='text' name='mode' id='mode'>
+            </p>
+
+
+    
+            <input type='button' value='Get the results' id='submitButton' onClick = "getData">
+            </div>
+
+            <div id='results'></div>
+
+        </form>
+<!--     <CreateMappingRequest>
+    <SubscriberId>13147449999</SubscriberId>
+    <SubscriberType>PHONE_NUMBER</SubscriberType>
+    <AccountUsage>RECEIVING</AccountUsage>
+    <DefaultIndicator>T</DefaultIndicator>
+    <Alias>My Debit Card</Alias>
+    <ICA>009674</ICA>
+    <AccountNumber>5184680430000006</AccountNumber>
+        <ExpiryDate>201401</ExpiryDate>
+    <CardholderFullName>
+        <CardholderFirstName>John</CardholderFirstName>
+        <CardholderMiddleName>Q</CardholderMiddleName>
+        <CardholderLastName>Public</CardholderLastName>
+        </CardholderFullName>
+    <Address>
+            <Line1>123 Main Street</Line1>
+            <Line2>#5A</Line2>
+            <City>Somewhere</City>
+            <CountrySubdivision>MO</CountrySubdivision>
+            <PostalCode>69999</PostalCode>
+            <Country>USA</Country>
+    </Address>
+    <DateOfBirth>19460102</DateOfBirth>
+    </CreateMappingRequest> -->
+</body>
+</html>
+Contact GitHub API Training Shop Blog About
+© 2016 GitHub, Inc. Terms Privacy Security Status Help

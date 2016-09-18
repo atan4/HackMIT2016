@@ -1,87 +1,91 @@
+<!-- Edited by ADRIANNA TAN -->
 <!DOCTYPE html>
+<html lang="en">
 
-<html>
 <head>
-    <title> GET Request test </title>
-    <link rel="stylesheet" type="text/css" href="test.css"/>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Amadeus Data Visualization</title>
+
+    <!-- Custom CSS -->
+    <link href="css/index.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Montserrat">
 </head>
 
 <body>
-
-    <div id = "form">
-        <form method='postCode'>
-
-          <!--   <p>
-                <label for='name'>Subscriber Type:</label><br>
-                <select name = "subscriberType" id = "subscriberType">
-                    <option selected="selected">Select One</option>
-                    <option>EMAIL_ADDRESS<option>PHONE_NUMBER
-                </select>
-            </p> -->
-
-            <p>
-                <label for='origin'>Origin:</label><br>
-                <input type='text' name='origin' id='origin'>
-            </p>
-
-            <p>
-                <label for='departure'>Departure Date</label><br>
-                <input type='text' name='departure' id='departure'>
-            </p>
-
-            <p>
-                <label for='duration'>Duration:</label><br>
-                <input type='text' name='duration' id='duration'>
-            </p>
-
-            <p>
-                <label for='direct'>Direct:</label><br>
-                <input type='text' name='direct' id='direct'>
-            </p>
-
-            <p>
-                <label for='maxPrice'>Budget:</label><br>
-                <input type='text' name='maxPrice' id='maxPrice'>
-            </p>
-
-            <p>
-                <label for='mode'>Aggregation Mode:</label><br>
-                <input type='text' name='mode' id='mode'>
-            </p>
-
-
-    
-            <input type='button' value='Get the results' id='submitButton' onClick = "getData">
-            </div>
-
-            <div id='results'></div>
-
+<div id="navbar">
+    <div id="header">
+        <h1>AMADEUS</h1>
+    </div>
+    <div id="input">
+        <form class="forms">
+            <input id="origin" type="text" class="form-control" placeholder="Origin">
+            <input id="departure" type="text" class="form-control" placeholder="Departure">
+            <input id="arrival" type="text" class="form-control" placeholder="Arrival">
+            <input id="maxbudget" type="text" class="form-control" placeholder="Max Budget">  
+            <button type="submit" class="button">Search Flights</button>
         </form>
-<!--     <CreateMappingRequest>
-    <SubscriberId>13147449999</SubscriberId>
-    <SubscriberType>PHONE_NUMBER</SubscriberType>
-    <AccountUsage>RECEIVING</AccountUsage>
-    <DefaultIndicator>T</DefaultIndicator>
-    <Alias>My Debit Card</Alias>
-    <ICA>009674</ICA>
-    <AccountNumber>5184680430000006</AccountNumber>
-        <ExpiryDate>201401</ExpiryDate>
-    <CardholderFullName>
-        <CardholderFirstName>John</CardholderFirstName>
-        <CardholderMiddleName>Q</CardholderMiddleName>
-        <CardholderLastName>Public</CardholderLastName>
-        </CardholderFullName>
-    <Address>
-            <Line1>123 Main Street</Line1>
-            <Line2>#5A</Line2>
-            <City>Somewhere</City>
-            <CountrySubdivision>MO</CountrySubdivision>
-            <PostalCode>69999</PostalCode>
-            <Country>USA</Country>
-    </Address>
-    <DateOfBirth>19460102</DateOfBirth>
-    </CreateMappingRequest> -->
+    </div>
+</div>
+    
+<div id="map"></div>    
+    <div id="map"></div>
+    <script>
+
+      // This example uses the Google Maps JavaScript API's Data layer
+      // to create a rectangular polygon with 2 holes in it.
+
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 3,
+          center: {lat: 43, lng: -20},
+        });
+
+        // Define the LatLng coordinates for the outer path.
+        var outerCoords = [
+          {lat: -32.364, lng: 153.207}, // north west
+          {lat: -35.364, lng: 153.207}, // south west
+          {lat: -35.364, lng: 158.207}, // south east
+          {lat: -32.364, lng: 158.207}  // north east
+        ];
+
+        // Define the LatLng coordinates for an inner path.
+        var innerCoords1 = [
+          {lat: -33.364, lng: 154.207},
+          {lat: -34.364, lng: 154.207},
+          {lat: -34.364, lng: 155.207},
+          {lat: -33.364, lng: 155.207}
+        ];
+
+        // Define the LatLng coordinates for another inner path.
+        var innerCoords2 = [
+          {lat: -33.364, lng: 156.207},
+          {lat: -34.364, lng: 156.207},
+          {lat: -34.364, lng: 157.207},
+          {lat: -33.364, lng: 157.207}
+        ];
+
+        var layer = new google.maps.FusionTablesLayer({
+          query: {
+            select: 'geometry',
+            from: '1N2LBk4JHwWpOY4d9fobIn27lfnZ5MDy-NoqqRpk',
+            where: "ISO_2DIGIT IN ('US', 'GB', 'DE', 'AF')"
+          }
+
+        });
+        
+        layer.setMap(map);
+
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArihPJ3CIYo60NzAuQz7BsplnlTtjQxUo&callback=initMap">
+    </script>
+    
 </body>
-</html>
-Contact GitHub API Training Shop Blog About
-© 2016 GitHub, Inc. Terms Privacy Security Status Help
