@@ -19,23 +19,40 @@
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
     <title>The Map</title>
+
+    <link href="css/index.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Montserrat">
   </head>
   <body>
-    <div id="constraints">
-      <input type="range" id="myRange" value="90" min="50" max="5000">
-      <p id="budget"></p>
-    </div>
+  <div id="navbar">
+      <div id="header">
+          <h1>AMADEUS</h1>
+      </div>
+      <div id="input">
+          <form class="forms">
+              <input id="origin" type="text" class="form-control" placeholder="Origin">
+              <input id="departure" type="text" class="form-control" placeholder="Departure">
+              <input id="arrival" type="text" class="form-control" placeholder="Arrival">
+              <input id="maxbudget" type="text" class="form-control" placeholder="Max Budget">  
+              <button type="submit" class="button">Search Flights</button>
+          </form>
+      </div>
+  </div>
     <div id="map-canvas"></div>
   </body>
 
 <style type="text/css">
       #map-canvas {
-        height: 500px;
-        width: 600px;
+        height: 600px;
+        width: 100%;
+        margin-top: 10px;
       }
-    </style>
-    <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
+</style>
+<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
 
     <script type="text/javascript">
       var colors = ['#FF0000', '#00FF00', '#0000FF', '#FFFF00'];
