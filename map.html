@@ -131,6 +131,53 @@
         script.src = url.join('');
         var body = document.getElementsByTagName('body')[0];
         body.appendChild(script);
+
+        bounds = new google.maps.LatLngBounds();
+
+        var leftPoint = new google.maps.LatLng(32.7384,-117.14);
+
+        bounds.extend(leftPoint);
+        var rightPointRhumb = leftPoint.rhumbDestinationPoint(90,2000000);
+        bounds.extend(rightPointRhumb);
+        var rightPointGeodesic = leftPoint.DestinationPoint(90,2000000);
+        bounds.extend(rightPointGeodesic);
+        var rhumbLine = new google.maps.Polyline({
+                       path:[leftPoint, rightPointRhumb],
+                       strokeColor: "#0000FF",
+                       strokeOpacity: 0.8,
+                       map: map,
+                       strokeWeight: 4
+           });
+        var rhumbLine = new google.maps.Polyline({
+                       path:[leftPoint, rightPointRhumb],
+                       strokeColor: "#00F000",
+                       strokeOpacity: 0.8,
+                       map: map,
+                       geodesic:true,
+                       strokeWeight: 4
+           });
+
+        var destinationLine = new google.maps.Polyline({
+                       path:[leftPoint, rightPointGeodesic],
+                       strokeColor: "#FF0000",
+                       strokeOpacity: 0.8,
+                       map: map,
+                       strokeWeight: 4
+           });
+        var destinationLineGeodesic = new google.maps.Polyline({
+                       path:[leftPoint, rightPointGeodesic],
+                       strokeColor: "#F000F0",
+                       strokeOpacity: 0.8,
+                       map: map,
+                       geodesic:true,
+                       strokeWeight: 4
+           });
+
+         createMarker(leftPoint, "left", "<b>origin</b><br>left:"+leftPoint.toUrlValue(6)+"<br>right:"+rightPointRhumb.toUrlValue(6)+"<br>distance="+(rhumbLine.Distance()/1000).toFixed(3)+" km");
+         createMarker(rightPointRhumb, "right rhumb", "<font color='blue'><b>.rhumbDestinationPoint(90,2000km)</b></font><br>left:"+leftPoint.toUrlValue(6)+"<br>right:"+rightPointRhumb.toUrlValue(6)+"<br>great circle distance="+(leftPoint.distanceFrom(rightPointRhumb)/1000).toFixed(3)+" km<br><font color='blue'>rhumb distance="+(leftPoint.rhumbDistanceTo(rightPointRhumb)/1000).toFixed(3)+" km</font>");
+         createMarker(rightPointGeodesic, "right rhumb", "<font color='red'><b>.DestinationPoint(90,2000km)</b></font><br>left:"+leftPoint.toUrlValue(6)+"<br>right:"+rightPointGeodesic.toUrlValue(6)+"<br><font color='red'>great circle distance="+(leftPoint.distanceFrom(rightPointGeodesic)/1000).toFixed(3)+" km</font><br>rhumb distance="+(leftPoint.rhumbDistanceTo(rightPointGeodesic)/1000).toFixed(3)+" km");
+          map.fitBounds(bounds);
+  
       }
 
       function drawMap(data) {
